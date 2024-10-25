@@ -1,114 +1,82 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #00c6ff, #0072ff);
-    color: #fff;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 2rem 0;
+    color: #333;
+}
+
+.container-cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cartao {
+    width: 250px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.cartao__conteudo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__frente,
+.cartao__verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    width: 450px;
-}
-
-.main-title {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.flashcard {
-    margin-bottom: 20px;
-    padding: 20px;
     border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.2rem;
 }
 
-.question {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza as opções */
-}
-
-.option {
-    background-color: white;
-    color: #007BFF;
-    padding: 20px;
-    margin: 10px 0;
-    border: 2px solid #007BFF;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 20px;
-    transition: background-color 0.3s, transform 0.2s;
-    width: 100%; /* Faz com que as opções ocupem toda a largura */
-    max-width: 400px; /* Limita a largura máxima */
-}
-
-.option:hover {
-    background-color: #e7f1ff;
-    transform: scale(1.05);
-}
-
-.feedback {
-    margin-top: 20px;
-    font-size: 20px;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.correct {
-    color: green;
-    animation: fadeIn 0.5s;
-}
-
-.wrong {
-    color: red;
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-button {
-    background-color: #007BFF;
+.cartao__frente {
+    background-color: #144480;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.cartao__verso {
+    background-color: rgba(0, 244, 191, 0.8);
+    transform: rotateY(180deg);
+    color: white;
 }
 
 footer {
-    margin-top: auto;
-    padding: 10px;
-    background-color: #003d66;
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #144480;
     color: white;
-    text-align: center;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0.5rem 0;
 }
